@@ -32,6 +32,7 @@ if(mysqli_num_rows($select_users) > 0){
 $result = mysqli_query($con, $sql);
 }
 
+mysqli_close($con);
 
 ?>
 
@@ -115,6 +116,10 @@ $result = mysqli_query($con, $sql);
                         <i class="fas fa-key"></i>
                         <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
                     </div>
+                    <div class="condition">
+                        <input type="checkbox" id="condition" required>
+                        <label for="condition">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
                     <input type="submit" value="Create Account" name="submit" class="btn" id="submit-btn">
                     <p>Already have an account?<a href="./login.html"> Login now</a></p>
                 </form>
@@ -125,5 +130,6 @@ $result = mysqli_query($con, $sql);
 
 
 <?php
+include './templates/newsletter.php';
 include './templates/footer.php';
 ?>
