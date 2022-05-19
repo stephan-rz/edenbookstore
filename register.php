@@ -7,15 +7,15 @@ include './php/config.php';
 
 if(isset($_POST['submit'])){
 
-$fName = $_POST['firstName'];
-$lName = $_POST['lastName'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$city = $_POST['city'];
-$state = $_POST['state'];
+$fName = mysqli_real_escape_string($con, $_POST['firstName']);
+$lName = mysqli_real_escape_string($con, $_POST['lastName']);
+$email = mysqli_real_escape_string($con, $_POST['email']);
+$phone = mysqli_real_escape_string($con, $_POST['phone']);
+$address = mysqli_real_escape_string($con, $_POST['address']);
+$city = mysqli_real_escape_string($con, $_POST['city']);
+$state = mysqli_real_escape_string($con, $_POST['state']);
 $zip = $_POST['zipCode'];
-$country = $_POST['country'];
+$country = mysqli_real_escape_string($con, $_POST['country']);
 $password = md5($_POST['password']);
 
 

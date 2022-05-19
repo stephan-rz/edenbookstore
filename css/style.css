@@ -48,6 +48,7 @@ button,
 button:hover,
 .btn:hover {
     background-color: var(--btn-hover);
+    color: white;
     transition: all .5s;
 }
 
@@ -345,4 +346,8 @@ footer {
 
 .terms>ul {
     margin-left: 20px;
+}
+
+.b-main {
+    padding-bottom: 80px;
 }
