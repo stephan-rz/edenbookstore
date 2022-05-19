@@ -342,3 +342,7 @@ nav {
 footer {
     border-top: 1px solid var(--color-grey03);
 }
+
+.terms>ul {
+    margin-left: 20px;
+}

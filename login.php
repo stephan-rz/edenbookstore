@@ -10,32 +10,34 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $password = md5($_POST['password']);
 
+
     $select_users = mysqli_query($con, "SELECT * FROM users WHERE email = '$email' AND password = '$password'") or die('query failed');
 
+
     if(mysqli_num_rows($select_users) > 0){
+    
         $row = mysqli_fetch_assoc($select_users);
-        
+
         if($row['user_type'] == 'admin'){
 
             $_SESSION['admin_name'] = $row['firstName'];
             $_SESSION['admin_email'] = $row['email'];
             $_SESSION['admin_id'] = $row['id'];
-            header('location:admin_dashboard.php');
+            header('location:admin_books.php');
             
         }elseif ($row['user_type'] == 'user') {
-
+           
             $_SESSION['user_name'] = $row['firstName'];
             $_SESSION['user_email'] = $row['email'];
             $_SESSION['user_id'] = $row['id'];
-            header('location:home.html');
+            header('location:home.php');
         }
     
     }else{
-        echo '<script>alert("Incorrect email or password!")';
+        echo '<script>alert("Incorrect email or password!")</script>';
     }
-    
-}
-
+} 
+mysqli_close($con);
 ?>
 
     <div class="main-container">
@@ -54,10 +56,7 @@ if(isset($_POST['submit'])){
                         <input type="password" name="password" id="password" placeholder="Password" required>
                         <i class="far fa-eye" id="togglePassword"></i>
                     </div>
-                    <div class="condition">
-                        <input type="checkbox" id="condition" required>
-                        <label for="condition">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
+                    
                     <div class="submit-btn-sec">
                         <input type="submit" name="submit" value="Sign In" class="btn login-btn" id="submit-btn">
                     </div>
@@ -75,5 +74,6 @@ if(isset($_POST['submit'])){
     </div>
 
 <?php
+include './templates/newsletter.php';
 include './templates/footer.php';
 ?>

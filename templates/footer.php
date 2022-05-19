@@ -1,14 +1,6 @@
 </body>
 
-<div class="main-container">
-        <div class="newsletter">
-            <h2>Subscribe our newsletter for newest<br> books updates</h2>
-            <form action="">
-                <input type="email" name="email" id="news-email" placeholder="Type your email here">
-                <input type="submit" value="Subscribe" class="btn">
-            </form>
-        </div>
-    </div>
+
 
 <footer>
     <div class="main-container f-main">
@@ -48,7 +40,7 @@
             <div class="f-col-3 column">
                 <h3>Quick Links</h3>  
                 <ul>
-                    <li><a href="">action</a></li>
+                    <li><a href="Terms and condition.php">Terms & Conditions</a></li>
                     <li><a href="">Adventure</a></li>
                     <li><a href="">Comedy</a></li>
                     <li><a href="">Crime</a></li>

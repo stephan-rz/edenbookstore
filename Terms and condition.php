@@ -1,5 +1,5 @@
 <?php
-$tile = 'Terms and Condition';
+$title = 'Terms and Condition';
 include './templates/header.php';
 
 ?>

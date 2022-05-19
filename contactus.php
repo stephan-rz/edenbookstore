@@ -1,5 +1,5 @@
 <?php
-$tile = 'Contact us';
+$title = 'Contact us';
 include './templates/header.php';
 
 ?>
@@ -74,5 +74,7 @@ include './templates/header.php';
     </div>
 
     <?php
+    include './templates/newsletter.php';
+
 include './templates/footer.php';
 ?>
