@@ -7,7 +7,7 @@ session_start();
 
 if(isset($_POST['submit'])){
 
-    $email = $_POST['email'];
+    $email = mysqli_real_escape_string($con, $_POST['email']);
     $password = md5($_POST['password']);
 
 
@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 } 
 mysqli_close($con);
 ?>
-
+    
     <div class="main-container">
         <div class="container login-card">
             <div class="form-container">
@@ -72,6 +72,7 @@ mysqli_close($con);
         </div>
 
     </div>
+    
 
 <?php
 include './templates/newsletter.php';
