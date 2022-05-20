@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
             $_SESSION['admin_name'] = $row['firstName'];
             $_SESSION['admin_email'] = $row['email'];
             $_SESSION['admin_id'] = $row['id'];
-            header('location:admin_books.php');
+            header('location:admin_dashboard.php');
             
         }elseif ($row['user_type'] == 'user') {
            

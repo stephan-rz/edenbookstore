@@ -1,3 +1,9 @@
+<?php
+
+include './php/config.php';
+
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -7,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" type="text/css" href="./css/header.css">
+    <link rel="stylesheet" type="text/css" href="./css/logged_user_header.css">
     <link rel="stylesheet" type="text/css" href="./css/register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
@@ -51,15 +57,28 @@
                     </div>
                 </div>
 
-                <div class="login">
-                    <a href="login.php"><button>Log In</button></a>
-                    <a href="register.php "><button>
-                    <span>
-                        <img src="./src/profile.svg " alt=" " style="margin-right:5px; width:20px; height:auto ">
-                    </span>
-                    <span>Sign Up</span>
-                </button></a>
+                <div class="user-box">
+                    <div class="user-button">
+                        <span>
+                            <img src="./src/logged_profile.svg " alt=" " style="margin-right:5px; width:30px; height:auto ">
+                        </span><?php echo $_SESSION['admin_name']; ?><i class="fa-solid fa-angle-down" id="user-popup-dropdown" style="margin-left:10px;"></i>
+
+                    </div>
+                    
+                    <div class="user-box-popup">
+                        <div class="user-list">
+                            <a href="admin_dashboard.php">
+                                <i class="fa-solid fa-user-circle"></i>
+                                <span>Dashboard</span>
+                            </a>
+                            <a href="logout.php">
+                                <i class="fa-solid fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+                
 
             </div>
             <div class="bottom-container">
@@ -77,3 +96,4 @@
             </div>
         </div>
     </header>
+    

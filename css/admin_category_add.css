@@ -1,0 +1,40 @@
+.category-container {
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.cat-input-field {
+    display: grid;
+    grid-template-columns: 100%;
+    padding-left: 20px;
+}
+
+.category-list ul {
+    list-style: none;
+}
+
+.category-list ul li i {
+    margin-right: 10px;
+}
+
+.category-list form {
+    margin-top: 20px;
+    border: 1px solid rgb(208, 208, 208);
+    padding: 15px 15px 20px 15px;
+    border-radius: 20px;
+}
+
+.category-list .card-btns {
+    display: grid;
+    grid-template-columns: 50% 45%;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.category-list .card-btns input {
+    justify-content: center;
+    margin-top: 5px;
+}
