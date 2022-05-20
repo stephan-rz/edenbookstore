@@ -13,17 +13,17 @@ if(!isset($admin_id)){
 }
 
 if(isset($_POST['addBook'])){
-    $title = $_POST['title'];
-    $author = $_POST['author'];
-    $publisher = $_POST['publisher'];
+
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $author = mysqli_real_escape_string($con, $_POST['author']);
+    $publisher = mysqli_real_escape_string($con, $_POST['publisher']);
     $price = $_POST['price'];
     $quantity = $_POST['qty'];
     $category = $_POST['category'];
-    $description = $_POST['description'];
+    $description = mysqli_real_escape_string($con, $_POST['description']);
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
     $image_folder = './src/uploads/'.$image;
-   
 
     $select_books = mysqli_query($con, "SELECT * FROM books WHERE title = '$title'") or die('query failed');
 
@@ -31,31 +31,27 @@ if(isset($_POST['addBook'])){
         echo '<script>alert("Book already added!")</script>';
     }else {
         $sql = "INSERT INTO books (title, author, publisher, price, qty, category_id , description, image) VALUES ('$title', '$author', '$publisher', '$price', '$quantity', '$category', '$description', '$image')";
-        $result = mysqli_query($con, $sql); 
+        $result = mysqli_query($con, $sql);
 
         if($result){
             move_uploaded_file($image_tmp, $image_folder);
             echo '<script>alert("Book Added Successfully!"); 
             window.location.href="admin_books.php";</script>';  
+            
         } else {
             echo '<script>alert("Book not added!")</script>';
         }
-        
     }
-    
-    
 }
-
-
 
 
 ?>
 
-<div class="main-container">
+<div class="main-container b-main">
     <div class="container">
         <div class="form-container">
             <h2>Add Book</h2>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
 
                 <div class="input-field">
                     <i class="fas fa-book"></i>
@@ -85,7 +81,7 @@ if(isset($_POST['addBook'])){
                 <div class="input-field">
                             <i class="fas fa-book"></i>
                             <select id="category" name="category" required>
-                                <option value=" " disable selected>- Select Country -</option>
+                                <option value=" " disable selected>- Select Category -</option>
                                 <option value="1">Action</option>
                                 <option value="2">Adventure</option>
                                 <option value="3">Comedy</option>
@@ -94,7 +90,7 @@ if(isset($_POST['addBook'])){
                 </div>
 
                 <div class="input-field description-field">
-                        <textarea name="description" id="description" cols="30" rows="15" placeholder="Description"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="15" placeholder="Description"></textarea>
                 </div>
 
                 <div class="input-field">
@@ -103,7 +99,9 @@ if(isset($_POST['addBook'])){
                 </div>
 
                 <input type="submit" name="addBook" value="Add Book" class="submit-btn btn">
-
+            </form>
+        </div>
+    </div>
 </div>
 
 
