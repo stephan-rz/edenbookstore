@@ -1,0 +1,132 @@
+.title-section {
+    height: 300px;
+    padding: 50px 0 50px 0;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+.title-section-container {
+    width: 1200px;
+    margin: auto;
+}
+
+.title-section-container>h1 {
+    color: white;
+}
+
+.breadcrump>li {
+    color: white;
+}
+
+.subtitle {
+    color: white;
+}
+
+.title-section-container>ul {
+    list-style: none;
+}
+
+.title-section-container>ul li {
+    display: inline;
+}
+
+.book-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-bottom: 80px;
+}
+
+.book-main h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.book-card {
+    padding: 30px;
+    border: 1px solid var(--color-grey03);
+    border-radius: 20px;
+    transition: all .2s ease-in-out;
+}
+
+.book-card form .image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.price-qty {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.price-qty span {
+    font-size: 20px;
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+.book-info h3 {
+    text-align: center;
+}
+
+.card-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn-1 {
+    width: 100%;
+}
+
+.btn-1 .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.book-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 24px -3px rgba(0, 0, 0, 0.38);
+}
+
+.load-more {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.book-card form input[type="number"] {
+    outline: none;
+    border: 1px solid var(--color-grey02);
+    border-radius: 20px;
+    text-align: center;
+    font-size: 18px;
+    width: 50%;
+}
+
+.book-card form input[type="number"]:hover {
+    border-color: var(--color-primary);
+}
+
+.info h3,
+p {
+    text-align: center;
+}
+
+.info h3 {
+    font-size: 20px;
+}

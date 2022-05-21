@@ -1,0 +1,32 @@
+.orders-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 40px;
+}
+
+.order-box {
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 20px 20px 91px #d9d9d9, 114px 100px 46px #ffffff;
+}
+
+.order-box p {
+    margin-bottom: 10px;
+}
+
+.input-field {
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    margin: 10px 0;
+    border: 1px solid #E1E1E1;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 0 20px 0 20px;
+    position: relative;
+}
+
+.input-field select {
+    height: 100%;
+}

@@ -1,0 +1,271 @@
+.title-section {
+    height: 300px;
+    padding: 50px 0 50px 0;
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+.title-section-container {
+    width: 1200px;
+    margin: auto;
+}
+
+.title-section-container>h1 {
+    color: white;
+}
+
+.breadcrump>li {
+    color: white;
+}
+
+.subtitle {
+    color: white;
+}
+
+.title-section-container>ul {
+    list-style: none;
+}
+
+.title-section-container>ul li {
+    display: inline;
+}
+
+.product-details h1 {
+    font-size: 16px!important;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+img,
+.basket-module,
+.basket-labels,
+.basket-product {
+    width: 100%;
+}
+
+input,
+.basket,
+.basket-module,
+.basket-labels,
+.item,
+.price,
+.quantity,
+.subtotal,
+.basket-product,
+.product-image,
+.product-details {
+    float: left;
+}
+
+.cart-container {
+    width: 100%;
+}
+
+.basket,
+aside {
+    padding: 0 1rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.basket {
+    width: 70%;
+}
+
+.basket form {
+    display: unset;
+}
+
+.basket-module {
+    color: #111;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3125rem;
+}
+
+.basket-labels {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 1.625rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    color: #111;
+    display: inline-block;
+    padding: 0.625rem 0;
+}
+
+.item {
+    width: 55%;
+}
+
+.price,
+.quantity,
+.subtotal {
+    width: 15%;
+}
+
+.subtotal {
+    text-align: right;
+}
+
+.remove {
+    display: flex;
+    align-items: center;
+    bottom: 1.125rem;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: unset;
+}
+
+.remove button {
+    background-color: transparent;
+    color: #777;
+    float: none;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.remove .update-btn {
+    margin-top: 0;
+}
+
+.item-heading {
+    padding-left: 4.375rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.basket-product {
+    border-bottom: 1px solid #ccc;
+    padding: 1rem 0;
+    position: relative;
+}
+
+.product-image {
+    width: 35%;
+}
+
+.product-details {
+    width: 65%;
+}
+
+.product-frame {
+    border: 1px solid #aaa;
+}
+
+.product-details {
+    padding: 0 1.5rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.quantity-field {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 2px;
+    width: 3.75rem;
+}
+
+aside {
+    float: right;
+    position: relative;
+    width: 30%;
+}
+
+.summary {
+    border-radius: 20px;
+    padding: 30px;
+    width: 250px;
+    box-sizing: border-box;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+.summary-total-items {
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+}
+
+.summary-subtotal,
+.summary-total {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    clear: both;
+    margin: 1rem 0;
+    overflow: hidden;
+    padding: 0.5rem 0;
+}
+
+.subtotal-title,
+.subtotal-value,
+.total-title,
+.total-value {
+    color: #111;
+    float: left;
+    width: 50%;
+}
+
+.summary-delivery {
+    padding-bottom: 3rem;
+}
+
+.subtotal-value,
+.total-value {
+    text-align: right;
+}
+
+.total-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.summary-checkout {
+    display: block;
+}
+
+.checkout-cta {
+    display: block;
+    float: none;
+    font-size: 0.75rem;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0.625rem 0;
+    width: 100%;
+}
+
+.summary-delivery-selection {
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    width: 100%;
+}
+
+.summary-checkout .btn {
+    width: 100%;
+    font-size: 15px;
+    justify-content: center;
+}
+
+.summary-checkout .disable {
+    pointer-events: none;
+    opacity: .5;
+    user-select: none;
+}

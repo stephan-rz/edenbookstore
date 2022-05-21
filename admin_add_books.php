@@ -85,10 +85,18 @@ include './templates/admin_header.php';
                             <i class="fas fa-book"></i>
                             <select id="category" name="category" required>
                                 <option value=" " disable selected>- Select Category -</option>
-                                <option value="1">Action</option>
-                                <option value="2">Adventure</option>
-                                <option value="3">Comedy</option>
-                                <option value="4">Crime</option>
+                                <?php
+                                $select_category_names= mysqli_query($con, "SELECT * FROM categories") or die('query failed');
+                                if(mysqli_num_rows($select_category_names) > 0){
+                                    while($fetch_category_names = mysqli_fetch_assoc($select_category_names)){
+                                ?>
+                                <option value="<?php echo $fetch_category_names['id'];?>"><?php echo $fetch_category_names['name']; ?></option>
+                                <?php
+                                    }
+                                } else {
+                                    echo '<p class="empty">No categories found!</p>';
+                                }
+                                ?>
                             </select>
                 </div>
 

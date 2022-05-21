@@ -2,7 +2,6 @@
 
 include './php/config.php';
 
-
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +37,12 @@ include './php/config.php';
                 </div>
                 <div class="cat-button">
                     <button class="category"> Category</button>
-                    <div class="c-list"><a href="shop.php">
+                    <div class="c-list">
                         <button class="links" style="border-radius: 10px 10px 0 0;">Adventure</button>
                         <button class="links">Comic Book</button>
                         <button class="links">Fantasy</button>
                         <button class="links">Horror</button>
-                        <button class="links" style="border-radius: 0 0 10px 10px;">Historical Fiction</button></a>
+                        <button class="links" style="border-radius: 0 0 10px 10px;">Historical Fiction</button>
                     </div>
                 </div>
                 <div class="bottom-container">
@@ -70,29 +69,25 @@ include './php/config.php';
                 </div>
                 <div class="cart-icon">
                         <?php
-                        if(isset($_SESSION['user_id'])){
-                            $user_id = $_SESSION['user_id'];
-                        } elseif(isset($_SESSION['admin_id']))
-                            $user_id = $_SESSION['admin_id'];
-
                         $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
                         $cart_rows_number = mysqli_num_rows($select_cart_number); 
                         ?>
-                        <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php if($cart_rows_number>0){
-                            echo $cart_rows_number;
-                        }else echo '0'; ?>)</span> </a>
+                        <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php echo $cart_rows_number; ?>)</span> </a>
                 </div>
+
                 <div class="user-box">
+                    
+                
                     <div class="user-button">
                         <span>
                             <img src="./src/logged_profile.svg " alt=" " style="margin-right:5px; width:30px; height:auto ">
-                        </span><?php echo $_SESSION['admin_name']; ?><i class="fa-solid fa-angle-down" id="user-popup-dropdown" style="margin-left:10px;"></i>
+                        </span><?php echo $_SESSION['user_name']; ?><i class="fa-solid fa-angle-down" id="user-popup-dropdown" style="margin-left:10px;"></i>
 
                     </div>
                     
                     <div class="user-box-popup">
                         <div class="user-list">
-                            <a href="admin_dashboard.php">
+                            <a href="user_dashboard.php">
                                 <i class="fa-solid fa-user-circle"></i>
                                 <span>Dashboard</span>
                             </a>

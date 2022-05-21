@@ -1,5 +1,5 @@
 <?php
-$title = 'Shop';
+$title = 'Search';
 include './php/config.php';
 session_start();
 
@@ -15,11 +15,6 @@ if(isset($_SESSION['admin_id'])){
 
 
 if(isset($_POST['add_to_cart'])){
-
-    if (!isset($user_id)){
-        echo '<script>alert("Please login to add books to cart!");
-        window.location.href="login.php";</script>';
-    }else {
 
     $book_id = $_POST['book_id'];
     $book_title = $_POST['book_title'];
@@ -38,17 +33,18 @@ if(isset($_POST['add_to_cart'])){
 
         if($result){
             echo '<script>alert("Book Added to Cart Successfully!"); 
-            window.location.href="shop.php";</script>';  
+            window.location.href="search.php";</script>';  
         } else {
             echo '<script>alert("Book not added to cart!")</script>';
         }
     }
-}
-}   
- 
+}        
+
+
 ?>
 
 <link rel="stylesheet" href="./css/shop.css">
+<link rel="stylesheet" href="./css/search.css">
 
     <div class="title-section">
         <div class="title-section-container">
@@ -61,16 +57,36 @@ if(isset($_POST['add_to_cart'])){
         </div>
     </div>
     <div class="main-container" style="display:block;align-items: flex-start;">
+
+    <div class="search-page-bar">
+                <div class="search">
+                    <form action="" method="get" class="search-page-form">
+                        <input type="text" name="search" placeholder="Search books...">
+                        <button type="submit" name="submit-search" class="search-btn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                    </form>
+                </div>
+                
+    </div>
+
+
+
         
         <div class="book-container">
             <?php
                 $select_books = mysqli_query($con, "SELECT * FROM books") or die('query failed');
                 $select_category= mysqli_query($con, "SELECT name FROM categories INNER JOIN books ON categories.id = books.category_id") or die('query failed');
 
-                if(mysqli_num_rows($select_books) > 0){
-                    while(($fetch_books = mysqli_fetch_assoc($select_books)) AND ($fetch_category = mysqli_fetch_assoc($select_category))){
-        
+                if(isset($_GET['submit-search'])){
+                    $search = $_GET['search'];
+                    $search_books = mysqli_query($con, "SELECT * FROM books WHERE title LIKE '%$search%' OR author LIKE '%$search%'") or die('query failed');
+
+                if(mysqli_num_rows($search_books) > 0){
+                    while(($fetch_books = mysqli_fetch_assoc($search_books)) AND ($fetch_category = mysqli_fetch_assoc($select_category))){
             ?>
+            
+     
             <div class="book-card">
                     <form action="" method="post" class="cart-box">
                         <img class="image" src="./src/uploads/<?php echo $fetch_books['image'] ?>" alt="">
@@ -90,21 +106,23 @@ if(isset($_POST['add_to_cart'])){
                             <input type="hidden" name="book_image" value="<?php echo 
                             $fetch_books['image'] ?>">
 
-                            <?php 
-
-                                echo '<div class="btn-1">
-                                <button type="submit" value="Add to cart" name="add_to_cart" class="btn"><img src="./src/cart.svg" alt="" style="width:25px; margin-right:10px;"> Add to cart</button>
-                                </div>';
                             
-                            ?>
+                            <div class="btn-1">
+                            <button type="submit" value="Add to cart" name="add_to_cart" class="btn"><img src="./src/cart.svg" alt="" style="width:25px; margin-right:10px;"> Add to cart</button>
+                            </div>
+                            
+                            
+                            
                             
                         </div>
                     </form>
                 </div>        
                 <?php
                     }
+                    } else {echo '<p class="empty">No result found!</p>';
+                    }  
                     } else {
-                        echo '<p class="empty">No books added yet!</p>';
+                        echo '<p class="empty">Seach something</p>';
                     }
                 ?>
 

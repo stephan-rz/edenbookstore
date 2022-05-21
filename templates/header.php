@@ -40,14 +40,26 @@
                     </div>
                 </div>
 
+                <div class="bottom-container">
+                <nav>
+                    <div class="nav-links">
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="aboutus.php ">About Us</a></li>
+                            <li><a href="shop.php ">Shop</a></li>
+                            <li><a href="faq.php ">FAQ</a></li>
+                            <li><a href="contactus.php ">Contact</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
                 <div class="search-bar">
                     <div class="search">
-                        <form action="../search.php" method="get" class="search-form">
-                            <input type="text" name="search" placeholder="Search">
-                            <button type="submit" class="search-btn">
+                        
+                            <a href="search.php"><button type="submit" class="search-btn" name="search-btn">
                             <i class="fa fa-search"></i>
-                        </button>
-                        </form>
+                        </button></a>
+                        
                     </div>
                 </div>
 
@@ -62,18 +74,6 @@
                 </div>
 
             </div>
-            <div class="bottom-container">
-                <nav>
-                    <div class="nav-links">
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="index.php ">Home</a></li>
-                            <li><a href="about.php ">About</a></li>
-                            <li><a href="contactus.php ">Contact</a></li>
-                            <li><a href="register.php ">Register</a></li>
-                            <li><a href="login.php ">Login</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+           
         </div>
     </header>

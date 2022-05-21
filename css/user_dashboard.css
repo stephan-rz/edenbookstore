@@ -1,0 +1,4 @@
+.input-field {
+    display: grid;
+    grid-template-columns: 50px 50%!important;
+}

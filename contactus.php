@@ -1,6 +1,16 @@
 <?php
 $title = 'Contact us';
-include './templates/header.php';
+include './php/config.php';
+session_start();
+
+
+if(isset($_SESSION['admin_id'])){
+        include './templates/admin_header.php';
+    } elseif(isset($_SESSION['user_id'])){
+        include './templates/user_header.php';
+}   else
+        include './templates/header.php';
+
 
 ?>
 
