@@ -1,7 +1,6 @@
 <?php
 
-$title = 'Book Add';
-include './templates/header.php';
+$title = 'Add Book';
 include './php/config.php';
 
 session_start();
@@ -44,10 +43,14 @@ if(isset($_POST['addBook'])){
     }
 }
 
-
+include './templates/admin_header.php';
 ?>
 
+
 <div class="main-container b-main">
+    
+<?php include './templates/admin_navigation.php' ?>
+
     <div class="container">
         <div class="form-container">
             <h2>Add Book</h2>

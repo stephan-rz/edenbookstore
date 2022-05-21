@@ -8,12 +8,13 @@
 .book-main h1 {
     width: 100%;
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .book-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
 }
 
 .book-card {

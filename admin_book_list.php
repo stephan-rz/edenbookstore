@@ -1,9 +1,9 @@
 <?php
 
 $title = 'Book List';
-include './templates/header.php';
 include './php/config.php';
 session_start();
+
 
 $admin_id = $_SESSION['admin_id'];
 
@@ -25,7 +25,7 @@ if(isset($_GET['delete'])){
 
 if(isset($_POST['update'])){
 
-    $id = $_POST['update_id'];
+    $update_id = $_POST['update_id'];
     $update_title = mysqli_real_escape_string($con, $_POST['update_title']);
     $update_author = mysqli_real_escape_string($con, $_POST['update_author']);
     $update_publisher = mysqli_real_escape_string($con, $_POST['update_publisher']);
@@ -36,28 +36,32 @@ if(isset($_POST['update'])){
     $update_image = $_FILES['update_image']['name'];
     $update_image_tmp = $_FILES['update_image']['tmp_name'];
     $update_image_folder = './src/uploads/'.$update_image;
+    $update_old_image = $_POST['update_old_image'];
 
-    $update_sql = mysqli_query($con, "UPDATE books SET title = '$update_title', author = '$update_author', publisher = '$update_publisher', price = '$update_price', qty = '$update_qty', category_id = '$update_category', description = '$update_description', image = '$update_image' WHERE id = '$update_id'") or die('query failed');
+    $update_sql = mysqli_query($con, "UPDATE books SET title = '$update_title', author = '$update_author', publisher = '$update_publisher', price = '$update_price', qty = '$update_qty', category_id = '$update_category', description = '$update_description' WHERE id = '$update_id'") or die('query failed');
 
     if(!empty($update_image)){
+        mysqli_query($con, "UPDATE books SET image = '$update_image' WHERE id = '$update_id'") or die('query failed');
         move_uploaded_file($update_image_tmp, $update_image_folder);
-        unlink('src/uploads/'.$_POST['old_image']);
+        unlink('src/uploads/'.$update_old_image);
     }
 
     header('location:admin_book_list.php');
 
 }
 
-
+include './templates/admin_header.php';
 
 ?>
 
 <link rel="stylesheet" href="./css/books.css">
-<script src="./js/admin_scripts.js" defer></script>
 
 
 <div class="main-container book-main">
-    <h1>Book list</h1>
+
+<?php include './templates/admin_navigation.php' 
+?>
+
     <div class="book-container">
         <?php
             $select_books = mysqli_query($con, "SELECT * FROM books") or die('query failed');
@@ -174,7 +178,12 @@ if(isset($_POST['update'])){
 </div>
 
 
+<script>
+    document.querySelector('#close-update').onclick = () => {
 
+document.querySelector('#update-popup-id').style.display = 'none';
+}
+</script>
 
 
 

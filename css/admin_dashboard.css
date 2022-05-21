@@ -1,0 +1,43 @@
+.book-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-bottom: 80px;
+}
+
+.admin-navigation {
+    width: 100%;
+}
+
+.book-main h1 {
+    width: 100%;
+    text-align: left;
+}
+
+.admin-navigation h2 {
+    color: grey;
+    text-align: left;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0 50px 0;
+}
+
+.admin-btn {
+    font-size: 18px;
+    background-color: #F5F6FA;
+    color: black;
+}
+
+.admin-btn:hover {
+    background-color: var(--color-secondary)
+}
+
+.button-container a.active {
+    background-color: var(--color-primary);
+    color: white;
+}
