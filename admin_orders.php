@@ -15,14 +15,13 @@ if(isset($_POST['update_order'])){
     $order_update_id = $_POST['order_id'];
     $update_payment = $_POST['update_payment'];
     mysqli_query($con, "UPDATE `orders` SET order_status = '$update_payment' WHERE id = '$order_update_id'") or die('query failed');
-    $message[] = 'payment status has been updated!';
+    echo '<script>alert("Order status updated successfully")</script>';
      
 }
      
 if(isset($_GET['delete'])){
     $delete_id = $_GET['delete'];
     mysqli_query($con, "DELETE FROM `orders` WHERE id = '$delete_id'") or die('query failed');
-    header('location:admin_orders.php');
 }
 
 ?>

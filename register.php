@@ -121,7 +121,7 @@ mysqli_close($con);
                         <label for="condition">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                     </div>
                     <input type="submit" value="Create Account" name="submit" class="btn" id="submit-btn">
-                    <p>Already have an account?<a href="./login.html"> Login now</a></p>
+                    <p>Already have an account?<a href="./login.php"> Login now</a></p>
                 </form>
             </div>
         </div>

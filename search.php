@@ -70,8 +70,6 @@ if(isset($_POST['add_to_cart'])){
                 
     </div>
 
-
-
         
         <div class="book-container">
             <?php

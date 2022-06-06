@@ -32,7 +32,7 @@ include './php/config.php';
         <div class="header">
             <div class="top-container">
                 <div class="logo">
-                    <a href="../index.php" class="brand-logo">
+                    <a href="index.php" class="brand-logo">
                         <img src="./src/logo.png" alt="logo" id="logo">
                     </a>
                 </div>

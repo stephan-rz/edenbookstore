@@ -35,7 +35,7 @@ if(isset($_POST['addBook'])){
         if($result){
             move_uploaded_file($image_tmp, $image_folder);
             echo '<script>alert("Book Added Successfully!"); 
-            window.location.href="admin_books.php";</script>';  
+            window.location.href="admin_book_list.php";</script>';  
             
         } else {
             echo '<script>alert("Book not added!")</script>';

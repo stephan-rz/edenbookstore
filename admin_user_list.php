@@ -43,10 +43,10 @@ include './templates/admin_header.php';
 
                     if(mysqli_num_rows($select_user_list) > 0){
                         while($fetch_user_list = mysqli_fetch_assoc($select_user_list)){
-                ?>
+                ?> 
                     <?php $name = $fetch_user_list['firstName'] . ' ' . $fetch_user_list['lastName'] ?>
                     <li><i class="fa-solid fa-user"></i><span><?php echo $name; ?></span> - 
-                    <a href="admin_user_list.php?delete=<?php echo $fetch_user_list['id']; ?>" onclick="return confirm('Delete this user?')">Delete</a>
+                    <a href="admin_user_list.php?delete=<?php echo $fetch_user_list['id']; ?>" onclick="return confirm('Delete this user?');">Delete</a>
                 
                     <?php
                  }

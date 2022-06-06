@@ -64,7 +64,7 @@ mysqli_close($con);
 
                 <div class="form-b">
                     <p>Don't have an account? <a href="register.php">Sign Up</a></p>
-                    <p style="font-style: italic;">Forgot your password?</p>
+                    
 
                 </div>
 

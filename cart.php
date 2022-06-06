@@ -28,7 +28,7 @@ if(isset($_GET['delete'])){
 
 if(isset($_GET['clear'])){
     mysqli_query($con, "DELETE FROM cart WHERE user_id = '$user_id'") or die('query failed');
-    header('location:cart.php');
+    header('location:shop.php');
 }
 
 ?>
