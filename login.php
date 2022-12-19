@@ -1,6 +1,7 @@
 <?php
 
 $title = 'Sign In';
+
 include './templates/header.php';
 include './php/config.php';
 session_start();
@@ -30,13 +31,14 @@ if(isset($_POST['submit'])){
             $_SESSION['user_name'] = $row['firstName'];
             $_SESSION['user_email'] = $row['email'];
             $_SESSION['user_id'] = $row['id'];
-            header('location:home.php');
+            header('location:user_dashboard.php');
         }
     
     }else{
         echo '<script>alert("Incorrect email or password!")</script>';
     }
-} 
+}
+
 mysqli_close($con);
 ?>
     
@@ -64,7 +66,7 @@ mysqli_close($con);
 
                 <div class="form-b">
                     <p>Don't have an account? <a href="register.php">Sign Up</a></p>
-                    <p style="font-style: italic;">Forgot your password?</p>
+                    
 
                 </div>
 

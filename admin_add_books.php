@@ -35,7 +35,7 @@ if(isset($_POST['addBook'])){
         if($result){
             move_uploaded_file($image_tmp, $image_folder);
             echo '<script>alert("Book Added Successfully!"); 
-            window.location.href="admin_books.php";</script>';  
+            window.location.href="admin_book_list.php";</script>';  
             
         } else {
             echo '<script>alert("Book not added!")</script>';
@@ -54,7 +54,7 @@ include './templates/admin_header.php';
     <div class="container">
         <div class="form-container">
             <h2>Add Book</h2>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="input-field">
                     <i class="fas fa-book"></i>
@@ -85,10 +85,18 @@ include './templates/admin_header.php';
                             <i class="fas fa-book"></i>
                             <select id="category" name="category" required>
                                 <option value=" " disable selected>- Select Category -</option>
-                                <option value="1">Action</option>
-                                <option value="2">Adventure</option>
-                                <option value="3">Comedy</option>
-                                <option value="4">Crime</option>
+                                <?php
+                                $select_category_names= mysqli_query($con, "SELECT * FROM categories") or die('query failed');
+                                if(mysqli_num_rows($select_category_names) > 0){
+                                    while($fetch_category_names = mysqli_fetch_assoc($select_category_names)){
+                                ?>
+                                <option value="<?php echo $fetch_category_names['id'];?>"><?php echo $fetch_category_names['name']; ?></option>
+                                <?php
+                                    }
+                                } else {
+                                    echo '<p class="empty">No categories found!</p>';
+                                }
+                                ?>
                             </select>
                 </div>
 

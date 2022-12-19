@@ -40,7 +40,7 @@ mysqli_close($con);
         <div class="container">
             <div class="form-container">
                 <h2>Create an Account</h2>
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
 
                     <div class="half-container">
@@ -121,7 +121,7 @@ mysqli_close($con);
                         <label for="condition">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                     </div>
                     <input type="submit" value="Create Account" name="submit" class="btn" id="submit-btn">
-                    <p>Already have an account?<a href="./login.html"> Login now</a></p>
+                    <p>Already have an account?<a href="./login.php"> Login now</a></p>
                 </form>
             </div>
         </div>

@@ -1,8 +1,34 @@
 <?php
 $title = 'Contact us';
-include './templates/header.php';
+include './php/config.php';
+session_start();
+
+if(isset($_SESSION['admin_id'])){
+  $user_id = $_SESSION['admin_id'];
+  include './templates/admin_header.php';
+} elseif(isset($_SESSION['user_id'])){
+  $user_id = $_SESSION['user_id'];
+  include './templates/user_header.php';
+}   else
+  include './templates/header.php';
+
+  if(isset($_POST['submit'])) {
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $Message = mysqli_real_escape_string($con, $_POST['message']);
+
+    $sql = "INSERT INTO contact_form (name, email, Message) VALUES ('$name','$email', '$Message')";
+    $result = mysqli_query($con, $sql);
+    if($result){
+        echo '<script>alert("Message sent successfully!")</script>';
+    } else {
+        echo '<script>alert("Message sending failed!")</script>';
+    }
+}
+
 
 ?>
+
 
 <link rel="stylesheet" href="./css/contactus.css">
     <div class="title-section">
@@ -20,7 +46,7 @@ include './templates/header.php';
 
             <div class="form-container">
                 <h2>Contact Us</h2>
-                <form action="form.php " method="post ">
+                <form action="" method="post" enctype="multipart/form-data">
 
                     <div class="input-field">
                         <i class="fas fa-user "></i>
@@ -36,7 +62,7 @@ include './templates/header.php';
                         <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
                     </div>
 
-                    <input type="submit" value="Send" class="btn" id="submit-btn">
+                    <input type="submit" name="submit" value="Send" class="btn" id="submit-btn">
                 </form>
             </div>
 

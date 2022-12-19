@@ -2,9 +2,16 @@
 
 include './php/config.php';
 
+
 ?>
 
 <!DOCTYPE html>
+
+<?php 
+setcookie("admin_id", $_SESSION["admin_id"], time() + (86400*30), "/");
+setcookie("admin_name", $_SESSION["admin_name"], time() + (86400*30), "/");
+setcookie("admin_email", $_SESSION["admin_email"], time() + (86400*30), "/");
+?>
 
 <html lang="en">
 
@@ -31,32 +38,56 @@ include './php/config.php';
         <div class="header">
             <div class="top-container">
                 <div class="logo">
-                    <a href="../index.php" class="brand-logo">
+                    <a href="index.php" class="brand-logo">
                         <img src="./src/logo.png" alt="logo" id="logo">
                     </a>
                 </div>
                 <div class="cat-button">
                     <button class="category"> Category</button>
-                    <div class="c-list">
+                    <div class="c-list"><a href="shop.php">
                         <button class="links" style="border-radius: 10px 10px 0 0;">Adventure</button>
                         <button class="links">Comic Book</button>
                         <button class="links">Fantasy</button>
                         <button class="links">Horror</button>
-                        <button class="links" style="border-radius: 0 0 10px 10px;">Historical Fiction</button>
+                        <button class="links" style="border-radius: 0 0 10px 10px;">Historical Fiction</button></a>
                     </div>
                 </div>
+                <div class="bottom-container">
+                <nav>
+                    <div class="nav-links">
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                            <li><a href="aboutus.php ">About Us</a></li>
+                            <li><a href="shop.php ">Shop</a></li>
+                            <li><a href="faq.php ">FAQ</a></li>
+                            <li><a href="contactus.php ">Contact</a></li>
 
+                        </ul>
+                    </div>
+                </nav>
+            </div>
                 <div class="search-bar">
                     <div class="search">
-                        <form action="../search.php" method="get" class="search-form">
-                            <input type="text" name="search" placeholder="Search">
-                            <button type="submit" class="search-btn">
+                        
+                            <a href="search.php"><button type="submit" class="search-btn" name="search-btn">
                             <i class="fa fa-search"></i>
-                        </button>
-                        </form>
+                        </button></a>
+                        
                     </div>
                 </div>
+                <div class="cart-icon">
+                        <?php
+                        if(isset($_SESSION['user_id'])){
+                            $user_id = $_SESSION['user_id'];
+                        } elseif(isset($_SESSION['admin_id']))
+                            $user_id = $_SESSION['admin_id'];
 
+                        $select_cart_number = mysqli_query($con, "SELECT * FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+                        $cart_rows_number = mysqli_num_rows($select_cart_number); 
+                        ?>
+                        <a href="cart.php"> <i class="fas fa-shopping-cart"></i> <span>(<?php if($cart_rows_number>0){
+                            echo $cart_rows_number;
+                        }else echo '0'; ?>)</span> </a>
+                </div>
                 <div class="user-box">
                     <div class="user-button">
                         <span>
@@ -81,19 +112,7 @@ include './php/config.php';
                 
 
             </div>
-            <div class="bottom-container">
-                <nav>
-                    <div class="nav-links">
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li><a href="index.php ">Home</a></li>
-                            <li><a href="about.php ">About</a></li>
-                            <li><a href="contactus.php ">Contact</a></li>
-                            <li><a href="register.php ">Register</a></li>
-                            <li><a href="login.php ">Login</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+            
         </div>
     </header>
     

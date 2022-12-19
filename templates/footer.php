@@ -9,7 +9,7 @@
                 <a href="../index.php" class="brand-logo">
                 <img src="./src/logo.png" alt="logo" id="logo">
                 </a>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, aperiam iusto magnam atque esse rem commodi placeat</p>
+                <p style="text-align:left;">Eden Books(PVT) Ltd has opened up entryway for universe of Books to make perusing lovable and advantageous for all by obtaining all aver the planet.</p>
                 <h3>Follow Us</h3>
                 <div class="social-media">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -21,18 +21,18 @@
                 <h3>Book Categories</h3>
                 <div class="b-cat-col-1">
                     <ul>
-                        <li><a href="">action</a></li>
-                        <li><a href="">Adventure</a></li>
-                        <li><a href="">Comedy</a></li>
-                        <li><a href="">Crime</a></li>
-                        <li><a href="">Drama</a></li>
-                        <li><a href="">Horror</a></li>
+                        <li><a href="shop.php">action</a></li>
+                        <li><a href="shop.php">Adventure</a></li>
+                        <li><a href="shop.php">Comedy</a></li>
+                        <li><a href="shop.php">Crime</a></li>
+                        <li><a href="shop.php">Drama</a></li>
+                        <li><a href="shop.php">Horror</a></li>
                     </ul>
                 </div>
                 <div class="b-cat-col-2">
                     <ul>
-                        <li><a href="">Law</a></li>
-                        <li><a href="">Mystery</a></li>
+                        <li><a href="shop.php">Law</a></li>
+                        <li><a href="shop.php">Mystery</a></li>
                     </ul>
                 </div>
 
@@ -40,12 +40,11 @@
             <div class="f-col-3 column">
                 <h3>Quick Links</h3>  
                 <ul>
+                    <li><a href="aboutus.php">About Us</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+                    <li><a href="contactus.php">Contact Us</a></li>
                     <li><a href="Terms and condition.php">Terms & Conditions</a></li>
-                    <li><a href="">Adventure</a></li>
-                    <li><a href="">Comedy</a></li>
-                    <li><a href="">Crime</a></li>
-                    <li><a href="">Drama</a></li>
-                    <li><a href="">Horror</a></li>
+                    <li><a href="PrivacyPolicy.php">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="f-col-4 column"> 

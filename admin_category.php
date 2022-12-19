@@ -24,6 +24,7 @@ if(isset($_GET['delete'])){
     }
 }
 
+
 if(isset($_POST['update'])){
 
     $update_id = $_POST['update_id'];

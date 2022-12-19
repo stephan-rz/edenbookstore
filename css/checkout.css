@@ -1,0 +1,20 @@
+.display-orde {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.checkout-order-display {
+    border: 1px solid var(--color-grey02);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.final-total {
+    margin: 20px 0 20px 0;
+}
+
+.final-total span {
+    font-size: 1.5rem;
+    font-weight: bold;
+}

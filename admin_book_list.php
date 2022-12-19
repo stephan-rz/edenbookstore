@@ -65,20 +65,20 @@ include './templates/admin_header.php';
     <div class="book-container">
         <?php
             $select_books = mysqli_query($con, "SELECT * FROM books") or die('query failed');
-
+            $select_category= mysqli_query($con, "SELECT name FROM categories INNER JOIN books ON categories.id = books.category_id") or die('query failed');
             if(mysqli_num_rows($select_books) > 0){
-                while($fetch_books = mysqli_fetch_assoc($select_books)){
+                while(($fetch_books = mysqli_fetch_assoc($select_books)) AND ($fetch_category = mysqli_fetch_assoc($select_category))){
     
         ?>
                 <div class="book-card">
                     <img src="src/uploads/<?php echo $fetch_books['image']; ?>" alt="">
                     <div class="book-info">
                         <h3><?php echo  $fetch_books['title']; ?></h3>
+                        <p style="text-align:center;"><?php echo $fetch_category['name']; ?></p>
                         <div class="price-qty">
                             <span>Price: <?php echo $fetch_books['price']; ?></span>
                             <span>Qty: <?php echo $fetch_books['qty']; ?></span>
                         </div>
-                        <p><?php echo $fetch_books['category_id']; ?></p>
                         <div class="card-btns">
                             <div class="btn-1">
                                 <a href="admin_book_list.php?update=<?php echo $fetch_books['id']; ?>"><button class="btn update-btn">Update</button></a>
@@ -86,7 +86,7 @@ include './templates/admin_header.php';
                             <div class="btn-2">
                                 <a href="admin_book_list.php?delete=<?php echo $fetch_books['id']; ?>"><button name="delete" class="btn delete-btn" onclick="return confirm('Delete this book?')">Delete</button></a>
                                 
-                            </div>
+                        </div>
                         </div>           
                     </div>
                 </div>
@@ -108,9 +108,10 @@ include './templates/admin_header.php';
             if(isset($_GET['update'])){
                 $id = $_GET['update'];
                 $update_query = mysqli_query($con, "SELECT * FROM books WHERE id = '$id'") or die('query failed');
-                
+                $select_category= mysqli_query($con, "SELECT name FROM categories INNER JOIN books ON categories.id = books.category_id") or die('query failed');
+
                 if(mysqli_num_rows($update_query) > 0){
-                    while($fetch_update = mysqli_fetch_assoc($update_query)){
+                    while(($fetch_update = mysqli_fetch_assoc($update_query)) AND ($fetch_category = mysqli_fetch_assoc($select_category))){
         ?>
         
         <form action="" method="post" enctype="multipart/form-data">
@@ -140,11 +141,20 @@ include './templates/admin_header.php';
                 <div class="input-field">
                     <i class="fas fa-book"></i>
                     <select name="update_category" id="update_category">
-                        <option value="<?php echo $fetch_update['category_id']; ?>"><?php echo $fetch_update['category_id']; ?></option>
-                        <option value="1">Action</option>
-                        <option value="2">Adventure</option>
-                        <option value="3">Comedy</option>
-                        <option value="4">Crime</option>
+                        <option value="<?php echo $fetch_update['category_id']; ?>"><?php echo $fetch_category['name']; ?></option>
+                        <?php
+                    
+                        $select_category_names= mysqli_query($con, "SELECT * FROM categories") or die('query failed');
+                        if(mysqli_num_rows($select_category_names) > 0){
+                            while($fetch_category_names = mysqli_fetch_assoc($select_category_names)){
+                        ?>
+                        <option value="<?php echo $fetch_category_names['id'];?>"><?php echo $fetch_category_names['name']; ?></option>
+                        <?php
+                            }
+                        } else {
+                            echo '<p class="empty">No categories found!</p>';
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="input-field">
