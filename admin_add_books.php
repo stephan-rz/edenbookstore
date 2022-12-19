@@ -54,7 +54,7 @@ include './templates/admin_header.php';
     <div class="container">
         <div class="form-container">
             <h2>Add Book</h2>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="input-field">
                     <i class="fas fa-book"></i>

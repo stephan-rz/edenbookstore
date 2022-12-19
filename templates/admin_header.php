@@ -7,6 +7,12 @@ include './php/config.php';
 
 <!DOCTYPE html>
 
+<?php 
+setcookie("admin_id", $_SESSION["admin_id"], time() + (86400*30), "/");
+setcookie("admin_name", $_SESSION["admin_name"], time() + (86400*30), "/");
+setcookie("admin_email", $_SESSION["admin_email"], time() + (86400*30), "/");
+?>
+
 <html lang="en">
 
 <head>

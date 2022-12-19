@@ -40,7 +40,7 @@ mysqli_close($con);
         <div class="container">
             <div class="form-container">
                 <h2>Create an Account</h2>
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
 
                     <div class="half-container">

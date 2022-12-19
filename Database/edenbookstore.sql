@@ -178,7 +178,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_type`, `firstName`, `lastName`, `email`, `phone`, `address`, `city`, `state`, `zipCode`, `country`, `password`, `date_time`) VALUES
-(4, 'admin', 'Shamal', 'Chathuranga', 'shamalchathuranga2@gmail.com', '0773308505', '34/G, Wathurugama road, Buthpitiya.', 'Gampaha', 'Western', '11720', 'australia', '202cb962ac59075b964b07152d234b70', '2022-05-20');
+(4, 'admin', 'Shamal', 'Chathuranga', 'testing@gmail.com', '0773308505', '34/G, Wathurugama road, Buthpitiya.', 'Gampaha', 'Western', '11720', 'australia', '202cb962ac59075b964b07152d234b70', '2022-05-20');
 
 --
 -- Indexes for dumped tables

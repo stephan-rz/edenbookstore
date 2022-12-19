@@ -86,7 +86,7 @@ include './templates/admin_header.php';
                             <div class="btn-2">
                                 <a href="admin_book_list.php?delete=<?php echo $fetch_books['id']; ?>"><button name="delete" class="btn delete-btn" onclick="return confirm('Delete this book?')">Delete</button></a>
                                 
-                            </div>
+                        </div>
                         </div>           
                     </div>
                 </div>

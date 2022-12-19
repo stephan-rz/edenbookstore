@@ -1,6 +1,7 @@
 <?php
 
 $title = 'Sign In';
+
 include './templates/header.php';
 include './php/config.php';
 session_start();
@@ -36,7 +37,8 @@ if(isset($_POST['submit'])){
     }else{
         echo '<script>alert("Incorrect email or password!")</script>';
     }
-} 
+}
+
 mysqli_close($con);
 ?>
     
