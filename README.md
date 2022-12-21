@@ -1,4 +1,4 @@
-# Eden Book Store
+# Eden Book Store (PHP Website)
 
 ## Home Page
 
